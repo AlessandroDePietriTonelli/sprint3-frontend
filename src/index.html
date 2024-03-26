@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
+    <header>
+        <h1>Enjoy my films collection </h1>
+        <img class="img-main" src="img/movietime.jpg" alt="pellicola">
+    </header>
 
-    <h1>Sprint 4 IT ACADEMY</h1>
-    
+    <section id="content">
+        <h2>Titles</h2>
+        <span>Click the button if you want to see all the movies</span>
+            <input type="button" value="show movies!!" id="btn-movies">
+            <h4 id="movies"></h4>
+        <hr>
+        <div>
+            <h2>Directors</h2>
+            <span>Click the button if you want to see all the directors</span>
+            <input type="button" value="show directors!!" id="btn-directors">
+            <h4 id="directors"></h4>
+        </div>
+        <hr>
+        <div>
+            <h2>Genre</h2>
+            <span>Click the button if you want to see all the genres</span>
+            <input type="button" value="show genres!!" id="btn-genre">
+            <h4 id="genre"></h4>
+        </div>
+        <hr>
+        <div>
+            <h2>Search for movies by a director</h2>
+            <input type="text" id="director" placeholder="write director's name">
+            <input type="button" value="search" id="btn-searchDirector">
+            <div id="showMoviesFromDirector"></div>
+            <h3 id="rating"></h3>
+        </div>
+        <hr>
+        <div>
+            <h2>Average for genre</h2>
+            <h3>Search for category</h3>
+            <input type="text" id="category" placeholder="write movie's genre">
+            <input type="button" value="search" id="btn-averageGenre">
+            <h3 id="showAverageGenre"></h3>
+        </div>
+        <hr>
+        <div>
+            <h2>Best of the year</h2>
+            <input type="number" id="year" placeholder="introduce year">
+            <input type="button" value="click!" id="btn-year">
+            <h3 id="showBestYear"></h3>
+        </div>
+
+    </section>
+
+
+
+
+ <script src="films.js"></script>
+ <script src="data.js"></script>
+ <script src="main.js"></script>
+  
 </body>
-
 </html>

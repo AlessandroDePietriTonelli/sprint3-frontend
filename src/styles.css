@@ -1,0 +1,30 @@
+*{
+    background-color: rgb(165, 173, 173);
+}
+h1 {
+   color: brown; 
+   font-size: 50px;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h2, h3, h4, span {
+    color: rgb(75, 64, 49);
+}
+
+input[type="button"] {
+    background-color: rgb(238, 234, 230);
+    box-shadow: 2px 2px 2px rgb(197, 196, 195);
+    cursor: pointer;
+}
+
+header {
+    
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+#content {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}

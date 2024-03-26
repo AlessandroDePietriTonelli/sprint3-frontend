@@ -1,7 +1,8 @@
+
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
-  let result = array.map(film => film.director);
-  //console.log("EXERCICE 1 ->", result);
+  let result = [...new Set(array.map(film => film.director))];
+  
   return result;
 }
 
@@ -15,7 +16,8 @@ function getMoviesFromDirector(array, director) {
 function moviesAverageOfDirector(array, director) {
   let directorArray = array.filter(film => film.director === director);
   let result = directorArray.reduce((total, film) => total + film.score, 0);
-  return result / directorArray.length
+  let resultFix = result / directorArray.length;
+  return parseFloat(resultFix.toFixed(2))
 }
 
 // Exercise 4:  Alphabetic order by title 
@@ -41,7 +43,8 @@ function orderByYear(array) {
 function moviesAverageByCategory(array, genre) {
   let genreArray = array.filter(film => film.genre.includes(genre));
   let result = genreArray.reduce((total, film) => total + film.score, 0);
-  return result / genreArray.length
+  let resultFix =  result / genreArray.length;
+  return parseFloat(resultFix.toFixed(2));
 }
 
 // Exercise 7: Modify the duration of movies to minutes
@@ -75,6 +78,7 @@ function bestFilmOfYear(array, year) {
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
+
 if (typeof module !== 'undefined') {
   module.exports = {
     getAllDirectors,
@@ -87,3 +91,5 @@ if (typeof module !== 'undefined') {
     bestFilmOfYear,
   };
 }
+
+
