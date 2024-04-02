@@ -25,13 +25,17 @@ function showCategory() {
 }
 
 function searchMoviesfromDirector() {
-    const director = document.getElementById('director').value;
+
+    document.getElementById('showMoviesFromDirector').innerHTML = "";
+
+    let director = document.getElementById('director').value;
     
     let result = getMoviesFromDirector(movies, director);
     
     let showResult = result.map(film => ({
         title: film.title,
-        duration: film.duration
+        duration: film.duration,
+        score: film.score
     }));
     
     
@@ -42,7 +46,7 @@ function searchMoviesfromDirector() {
     // Iterare attraverso il nuovo array e aggiungere ciascun elemento come elemento della lista
     showResult.forEach(film => {
     let li = document.createElement('li');
-    li.textContent = `${film.title} - ${film.duration}`;
+    li.textContent = `${film.title} - ${film.duration} - ${film.score}`;
     ul.appendChild(li);
     });
 
@@ -57,6 +61,9 @@ function searchMoviesfromDirector() {
 
     document.getElementById('rating').innerHTML = 
     `Average rating: ${rating}`;
+   
+    //clear inputs
+   document.getElementById('director').value = "" 
 }
 
 function showAverageCategory() {
@@ -70,18 +77,25 @@ function showAverageCategory() {
 
     document.getElementById('showAverageGenre').innerHTML = 
     `Average for ${genre}: ${result}`;
+
+    document.getElementById('category').value = "";
 }
 
 function showBestForYear() {
     const year = parseInt(document.getElementById('year').value);
     const bestFilm = bestFilmOfYear(movies, year);
-    const result = bestFilm.map(film => film.title)
-    debugger
+    const result = bestFilm.map(film => ({title: film.title, score: film.score}))
+    
     if(result == "") {
         document.getElementById('showBestYear').innerHTML = 'fil not found';
         return;
     }
-    document.getElementById('showBestYear').innerHTML = result;
+  
+    document.getElementById('showBestYear').innerHTML = `${result[0].title}, ${result[0].score}`;
+
+    document.getElementById('year').value = "";
+
+
 }
 
 
