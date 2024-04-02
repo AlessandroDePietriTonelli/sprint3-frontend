@@ -1,5 +1,6 @@
 
 
+
 const btnMovies = document.getElementById('btn-movies');
 const btnDirectors = document.getElementById('btn-directors');
 const btnSearchMovie = document.getElementById('btn-searchDirector');
@@ -8,9 +9,13 @@ const btnAverageGenre = document.getElementById('btn-averageGenre');
 const btnYear = document.getElementById('btn-year');
 
 function showMovies() {
-    let result = movies.map(film => film.title);
-    let resultOrder = result.sort()
-    document.getElementById('movies').innerHTML = resultOrder;
+   
+    let result = orderByYear(movies);
+    let divMovies = document.getElementById('movies')
+    result.forEach(film => {
+        let titleYear = `${film.title} - ${film.year}  ---`
+        divMovies.innerHTML += titleYear
+    }) 
 }
 
 function showDirectors() {
@@ -40,17 +45,17 @@ function searchMoviesfromDirector() {
     
     
     let container = document.getElementById('showMoviesFromDirector');
-    // Creare una lista non ordinata
+   
     let ul = document.createElement('ul');
 
-    // Iterare attraverso il nuovo array e aggiungere ciascun elemento come elemento della lista
+    
     showResult.forEach(film => {
     let li = document.createElement('li');
     li.textContent = `${film.title} - ${film.duration} - ${film.score}`;
     ul.appendChild(li);
     });
 
-    // Aggiungere la lista al contenitore HTML
+    
     container.appendChild(ul);
     
     let rating = moviesAverageOfDirector(movies, director);
@@ -62,7 +67,7 @@ function searchMoviesfromDirector() {
     document.getElementById('rating').innerHTML = 
     `Average rating: ${rating}`;
    
-    //clear inputs
+    
    document.getElementById('director').value = "" 
 }
 
